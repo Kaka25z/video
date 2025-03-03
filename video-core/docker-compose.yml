@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  video-core:
+    image: video-core:latest
+    ports:
+      - "8080:8080"
+      - "7071:7071"
+    volumes:
+      - ./config/application.yml:/app/application.yml
+      - ./public/video/:/app/public/video/
+      - ./public/chunk/:/app/public/chunk/
+      - ./public/img/cover/:/app/public/img/cover/
+    environment:
+      - SPRING_CONFIG_LOCATION=classpath:/application.yml,file:/app/application.yml
+    network_mode: 1panel-network

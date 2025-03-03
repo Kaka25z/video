@@ -1,0 +1,88 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    connection-timeout: 20000
+    keep-alive-timeout: 60000
+    threads:
+      max: 400
+      min-spare: 10
+
+spring:
+  application:
+    name: video
+
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.100.158:3306/video?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: mysql_3TPFPn
+    druid:
+      initial-size: 0
+      min-idle: 0
+      max-active: 20
+      max-wait: 60000
+      min-evictable-idle-time-millis: 60000
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: false
+      test-while-idle: true
+      pool-prepared-statements: true
+      filters: stat,wall,log4j
+      max-pool-prepared-statement-per-connection-size: 20
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+      resolve-lazily: true
+  redis:
+    database: 0
+    host: 192.168.100.158
+    port: 6379
+    password: jhkdjhkjdhsIUTYURTU_nHKFHF
+    jedis:
+      pool:
+        min-idle: 10
+        max-idle: 10
+        max-active: 100
+        max-wait: -1
+    timeout: 5000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+minio:
+  bucketName: video
+  endpoint: https://minio.kaka25zai.top:55648
+  access-key: I41IxpkffHEZLJXtGm1y
+  secret-key: q8uLJ8W5kdGO46qKqxtBBA47Yrsd1TL35UO7VsGg
+
+elasticsearch:
+  host: 127.0.0.1
+  port: 9200
+  username:
+  password:
+
+directory:
+  # ????????
+  video: public/video/
+  # ??????
+  chunk: public/chunk/
+  # ????????
+  cover: public/img/cover/
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+      base-url: /documentation
+
+
+captcha:
+  prefix: captcha
+  local-cache-enabled: true
+  init-default-resource: true

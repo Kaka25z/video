@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "48080:80"
+networks:
+  bridge_network:
+    driver: bridge

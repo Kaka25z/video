@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "file",
+      "type": "com.video.core.config.FileUploadConfig",
+      "sourceType": "com.video.core.config.FileUploadConfig"
+    },
+    {
+      "name": "spring.datasource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.video.core.config.DruidConfig",
+      "sourceMethod": "public javax.sql.DataSource druid() "
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
